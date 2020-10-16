@@ -24,10 +24,12 @@ def main():
     lns = LivedoorNewsSearch()
 
     for d in get_subdirs(PATH):
+        print("processing for category [{}] start...".format(d))
         for fn in get_filenames(PATH+d):
             with open(path.join(PATH + d + "/" + fn), "r") as f:
                 source = f.read()
                 lns.addDocument(d, fn, source)
+        print("processing for category [{}] end...".format(d))
 
 
 if __name__ == "__main__":
